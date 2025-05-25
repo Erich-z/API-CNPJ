@@ -614,22 +614,35 @@ app.post("/cadastroCliente", (req, res) => {
             `;
         }
 
-        if (!uf) {
-            conteudo += `
-      <div class="mb-3">
-        <label for="uf">UF</label>
-        <input type="text" class="form-control" id="uf" name="uf" placeholder="SP">
-        <p class="text-danger">Por favor informe a UF</p>
-      </div>
-            `;
-        } else {
-            conteudo += `
-      <div class="mb-3">
-        <label for="uf">UF</label>
-        <input type="text" class="form-control" id="uf" name="uf" value="${uf}">
-      </div>
-            `;
-        }
+       if (!uf) {
+        conteudo += `
+        <div class="col-md-2 mb-3">
+          <label for="uf">UF</label>
+          <select class="form-select" id="uf" name="uf">
+            <option value="" selected>UF</option>
+            <option value="SP">SP</option>
+            <option value="RJ">RJ</option>
+            <option value="MG">MG</option>
+            <option value="RS">RS</option>
+          </select>
+          <p class="text-danger">Por favor informe a UF</p>
+        </div>
+        `;
+      } else {
+        conteudo += `
+        <div class="col-md-2 mb-3">
+          <label for="uf">UF</label>
+          <select class="form-select" id="uf" name="uf">
+            <option value="" ${!uf ? 'selected' : ''}>UF</option>
+            <option value="SP" ${uf === 'SP' ? 'selected' : ''}>SP</option>
+            <option value="RJ" ${uf === 'RJ' ? 'selected' : ''}>RJ</option>
+            <option value="MG" ${uf === 'MG' ? 'selected' : ''}>MG</option>
+            <option value="RS" ${uf === 'RS' ? 'selected' : ''}>RS</option>
+          </select>
+          <p class="text-danger"></p>
+        </div>
+        `;
+      }
 
         if (!cep) {
             conteudo += `
@@ -651,7 +664,7 @@ app.post("/cadastroCliente", (req, res) => {
         if (!email) {
             conteudo += `
       <div class="mb-3">
-  <label for="email"><i class="bi bi-envelope-fill form-icon"></i>E-mail</label>
+  <label for="email">E-mail</label>
   <input type="email" class="form-control" id="email" name="email" value="${email || ""}" placeholder="email@empresa.com.br">
   <p class="text-danger" style="min-height: 18px; margin: 4px 0 0;">
     ${!email ? "Email é obrigatório" : ""}
