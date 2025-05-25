@@ -303,7 +303,7 @@ app.get("/cadastroCliente", (req, res) =>{
   <!-- MENU -->
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#"><i class="bi bi-building"></i> E&V</a>
+      <a class="navbar-brand" href="/cadastroCliente"><i class="bi bi-building"></i> E&V</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon text-white"></span>
       </button>
@@ -313,7 +313,7 @@ app.get("/cadastroCliente", (req, res) =>{
           <li class="nav-item"><a class="nav-link active" href="/listarCadastro"><i class="bi bi-person-plus-fill"></i> Ver cadastros</a></li>
         </ul>
         <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="/"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
+          <li class="nav-item"><a class="nav-link" href="/logout"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
         </ul>
       </div>
     </div>
@@ -431,6 +431,17 @@ app.post("/cadastroCliente", (req, res) => {
       background: linear-gradient(135deg, #e0eaff, #f5f7fa);
       font-family: 'Poppins', sans-serif;
     }
+
+    .navbar {
+      background-color: #343a40;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .navbar-brand,
+    .nav-link {
+      color: #ffffff !important;
+    }
+
     .form-container {
       max-width: 720px;
       margin: 80px auto;
@@ -440,27 +451,33 @@ app.post("/cadastroCliente", (req, res) => {
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
       transition: all 0.3s ease-in-out;
     }
+
     .form-container:hover {
       transform: scale(1.01);
       box-shadow: 0 12px 50px rgba(0, 0, 0, 0.15);
     }
+
     h2 {
       font-weight: 700;
       color: #0d6efd;
       text-align: center;
       margin-bottom: 30px;
     }
+
     label {
       font-weight: 500;
     }
+
     input, select {
       border-radius: 12px !important;
       transition: 0.3s;
     }
+
     input:focus, select:focus {
       border-color: #0d6efd;
       box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
     }
+
     .btn-custom {
       background: linear-gradient(135deg, #0d6efd, #6610f2);
       border: none;
@@ -470,14 +487,43 @@ app.post("/cadastroCliente", (req, res) => {
       font-weight: bold;
       transition: 0.4s ease;
     }
+
     .btn-custom:hover {
       transform: translateY(-2px);
       background: linear-gradient(135deg, #6610f2, #0d6efd);
       color: white;
     }
+
+    .form-icon {
+      margin-right: 10px;
+      color: #0d6efd;
+    }
+
   </style>
 </head>
+
 <body>
+
+<!-- MENU -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/cadastroCliente"><i class="bi bi-building"></i> E&V</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon text-white"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link" href="/cadastroCliente"><i class="bi bi-house-door-fill"></i> Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="/listarCadastro"><i class="bi bi-person-plus-fill"></i> Ver cadastros</a></li>
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="/logout"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
   <div class="form-container">
     <h2><i class="bi bi-person-vcard"></i> Cadastro de Empresa</h2>
     <form method="POST" action="/cadastroCliente">
@@ -645,6 +691,7 @@ app.post("/cadastroCliente", (req, res) => {
       </div>
     </form>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
         `;
@@ -732,17 +779,16 @@ app.get("/listarCadastro", (req, res) => {
 
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#"><i class="bi bi-building"></i> E&V</a>
+      <a class="navbar-brand" href="/cadastroCliente"><i class="bi bi-building"></i> E&V</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon text-white"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav me-auto">
           <li class="nav-item"><a class="nav-link" href="/cadastroCliente"><i class="bi bi-house-door-fill"></i> Home</a></li>
-          <li class="nav-item"><a class="nav-link active" href="#"><i class="bi bi-list-ul"></i> Listar</a></li>
         </ul>
         <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="/"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
+          <li class="nav-item"><a class="nav-link" href="/logout"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
         </ul>
       </div>
     </div>
@@ -802,14 +848,36 @@ app.get("/listarCadastro", (req, res) => {
       }
     }
   </script>
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   </body>
   </html>`;
 
   res.send(conteudo);
 });
 
-
+app.get("/logout", (req, res)=>{
+   res.send(`
+    <!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+      <meta charset="UTF-8">
+      <title>Logout Sucesso</title>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+      <script>
+        setTimeout(() => {
+          window.location.href = "/";
+        }, 1500);
+      </script>
+    </head>
+    <body class="d-flex align-items-center justify-content-center bg-light" style="height: 100vh;">
+      <div class="text-center">
+        <h2 class="text-success"><i class="bi bi-check-circle"></i> Logout efetuado com sucesso!</h2>
+        <p class="mt-2">Redirecionando para o inicio...</p>
+      </div>
+    </body>
+    </html>
+  `);
+})
 app.listen(port, host, () => {
     console.log(`Servidor em execução em http://localhost:${port}/`);
 });

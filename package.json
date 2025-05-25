@@ -7,10 +7,15 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Erich-z/API-CNPJ.git"
+  },
   "keywords": [],
-  "author": "",
+  "author": "Erich Valarini",
   "license": "ISC",
-  "description": "",
+  "description": "Criando api de cadastro de empresa, com tela de login e logout",
+  "homepage": "https://github.com/Erich-z/API-CNPJ#readme",
   "dependencies": {
     "express": "^5.1.0"
   }
