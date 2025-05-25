@@ -351,7 +351,7 @@ app.get("/cadastroCliente", (req, res) =>{
         </div>
         <div class="col-md-2 mb-3">
           <label for="uf"><i class="bi bi-map form-icon"></i>UF</label>
-          <select class="form-select" id="uf" >
+          <select class="form-select" id="uf" name="uf">
             <option value="">UF</option>
             <option>SP</option>
             <option>RJ</option>
@@ -362,18 +362,18 @@ app.get("/cadastroCliente", (req, res) =>{
         </div>
         <div class="col-md-4 mb-3">
           <label for="cep"><i class="bi bi-mailbox form-icon"></i>CEP</label>
-          <input type="text" class="form-control" id="cep" >
+          <input type="text" class="form-control" id="cep" name="cep">
           <p class="text-danger" id="erroLogin"></p>
         </div>
       </div>
       <div class="mb-3">
         <label for="email"><i class="bi bi-envelope-fill form-icon"></i>E-mail</label>
-        <input type="email" class="form-control" id="email" placeholder="email@empresa.com.br" >
+        <input type="email" class="form-control" id="email" name="email" placeholder="email@empresa.com.br" >
         <p class="text-danger" id="erroLogin"></p>
       </div>
       <div class="mb-3">
         <label for="telefone"><i class="bi bi-telephone-fill form-icon"></i>Telefone</label>
-        <input type="tel" class="form-control" id="telefone" placeholder="(11) 99999-9999" >
+        <input type="tel" class="form-control" id="telefone" name="telefone" placeholder="(11) 99999-9999" >
         <p class="text-danger" id="erroLogin"></p>
       </div>
       <div class="text-center mt-4">
